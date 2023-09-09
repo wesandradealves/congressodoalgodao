@@ -1,0 +1,252 @@
+.btn {
+    padding: 16px 50px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 10px;
+    font-weight: bold;
+    @include toRem(font-size, 14);
+    text-transform: uppercase;
+    &.primary {
+        color: black;
+        background-color: color(secondary, base);
+        .nav-link, a {
+            color: inherit !important;
+        }
+        &:hover {
+            background-color: color(primary, base);
+            color: color(secondary, base);
+            .nav-link, a {
+                color: color(secondary, base) !important;
+            }
+        }
+    }
+    &.secondary {
+        color: white;
+        background-color: color(primary, base);
+        border: 2px transparent solid;
+        .nav-link, a {
+            color: inherit !important;
+        }
+        &:hover {
+            background-color: transparent;
+            border-color: color(primary, base);
+            color: color(primary, base);
+            .nav-link, a {
+                color: color(primary, base) !important;
+            }
+        }
+    }    
+}
+
+.svg {
+    margin: 0 auto;
+    height: 210px;
+    position: relative;
+    // @media screen and (max-width: $screen-sm-min) {
+    //     height: auto;
+    // }
+    svg {
+        position: absolute;
+        top: 0;
+        height: 210px;
+        width: 1440px;
+        left: calc(50% - (1440px/2));
+    }
+}
+
+.social-networks {
+    .nav-item {
+        @include toRem(font-size, 16);
+        &:not(:last-child) {
+            margin-right: 27px;
+        }
+    }
+}
+
+.section-header {
+    .title {
+        span {
+            font-weight: 500;
+        }
+        @include toRem(font-size, 48);
+        color: color(primary, base);
+    }
+    .text {
+        margin-left: auto;
+        margin-right: auto;
+        // max-width: 424px;
+        line-height: 1.8;
+        @include toRem(font-size, 16);
+        color: color(neutrals, gray);
+    }
+}
+
+.cta {
+    &[data-layout="container"] {
+        .container {
+            border-radius: 10px !important;
+        }
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    > [class*="container"] {
+        margin-top: 80px;
+        .btn {
+            @extend .btn;
+            padding-left: 40px;
+            padding-right: 40px;
+        }        
+        background-position: right 0;
+        @media screen and (min-width: $screen-xl-min) {
+            background-position: right bottom;
+            background-size: contain;
+        }
+        background-repeat: no-repeat;        
+        &.default {
+            background-color: color(secondary, base); 
+            color: color(primary, base); 
+            .text {
+                color: color(primary, dark); 
+            }        
+            .btn {
+                @extend .secondary;
+            }                  
+        }
+        &.green {
+            background-color: color(helpers, green); 
+            color: white; 
+            .title {
+                font-weight: bold;
+            }
+            .text {
+                color: inherit; 
+                @include toRem(font-size, 18);
+            }            
+            .btn {
+                @extend .primary;
+            }      
+            .col-xl-8 {
+                @media screen and (min-width: $screen-xl-min) {
+                    width: 41.66666667%;
+                }
+            }                      
+        }        
+        padding: 44px 50px;
+        @media screen and (min-width: $screen-xl-min) {
+            padding: 44px 103px;
+        }
+        .title {
+            font-weight: 500;
+            @include toRem(font-size, 36);
+        }
+        .text {
+            @include toRem(font-size, 28);
+            line-height: 1.8;
+            p {
+                line-height: inherit;
+            }
+        }
+    }
+}
+
+.post-card {
+    .title {
+        font-weight: bold;
+        @include toRem(font-size, 22);
+        color: color(primary, dark); 
+        text-transform: initial;
+        a {
+            color: inherit;
+        }
+        &:hover {
+            color: color(secondary, base); 
+        }
+    }
+    .thumbnail {
+        height: 229px;
+        object-fit: cover;
+        @media screen and (min-width: $screen-sm-min) {
+            width: 335px !important;    
+        }
+    }
+    .text {
+        @include toRem(font-size, 14);
+        color: color(secondary, base); 
+        a {
+            color: color(primary, base); 
+            @include toRem(font-size, 16);
+            font-weight: bold;
+            &:hover {
+                color: color(secondary, base); 
+            }
+        }
+    }    
+}
+
+.wpcf7-spinner {
+    display: none;
+    position: absolute;
+    top: calc(50% - 12px);
+    left: calc(50% - 36px);
+    z-index: 2;
+}
+.wpcf7-response-output {
+    color: color(secondary, base);
+}
+&.submitting {
+    .wpcf7-spinner {
+        display: inline-flex;
+    }
+}
+
+.spinner {
+    @extend .popup;
+    .loader {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        border: 3px solid;
+        border-color: #FFF #FFF transparent;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+    .loader::after {
+    content: '';  
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border: 3px solid;
+        border-color: transparent color(secondary, base) color(secondary, base);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        animation: rotationBack 0.5s linear infinite;
+        transform-origin: center center;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+        
+    @keyframes rotationBack {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+    }
+}

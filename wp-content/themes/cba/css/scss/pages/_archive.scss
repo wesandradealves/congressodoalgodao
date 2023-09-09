@@ -1,0 +1,27 @@
+#primary {
+    .container {
+        padding-top: 80px;
+        padding-bottom: 30px;
+        flex-wrap: wrap;
+        .content {
+            order: 2;
+            & ~ * {
+                order: 3; 
+                &:not(.sticky) {
+                    order: 1;
+                }
+            }
+
+            @media screen and (min-width: $screen-xl-min) {
+                order: 1;
+                & ~ * {
+                    order: 3; 
+                    &:not(.sticky) {
+                        order: 2;
+                    }
+                }
+                padding-right: 106px;
+            }
+        }        
+    }
+}

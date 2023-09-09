@@ -1,0 +1,181 @@
+.page-template-inscreva-se {
+    .hoteis {
+        margin-bottom: 80px;
+        &-list {
+            &-item {
+                opacity: .7;
+                &[data-vacancy="1"] {
+                    pointer-events: initial;
+                    opacity: 1;
+                }
+                .item-inner {
+                    border-radius: 10px;
+                    border: 1px color(primary, dark) solid;
+                    padding: 28px;
+                    color: color(primary, dark);
+                    height: 100%;
+                    .title {
+                        @include toRem(font-size, 22);
+                        text-transform: uppercase;
+                        max-width: 130px;
+                        cursor: pointer;
+                    }
+                    .text {
+                        @include toRem(font-size, 18);
+                        color: color(neutrals, gray);
+                        [class*="fa"] {
+                            color: greenyellow;
+                        }
+                    }
+                }
+                &:hover {
+                    .item-inner {
+                        .title {
+                            color: color(secondary, base);
+                        }
+                        border-color: color(secondary, base);
+                    }
+                }
+            }
+        }
+    }
+    .tickets {
+        margin-bottom: 80px;
+        color: white;
+        background-color: color(helpers, purple);
+        .section-header {
+            .text,
+            .title {
+                color: inherit;
+            }
+        }
+        > .container {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        &-table {
+            & + p {
+                a {
+                    color: color(secondary, base);
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            @media screen and (max-width: $screen-lg-min) {
+                overflow: auto;
+            }
+            .btn {
+                margin: 0 auto;
+                border-radius: 5px;
+                @include toRem(font-size, 14);
+                padding: 10px;
+                @media screen and (min-width: $screen-xl-min) {
+                    @include toRem(font-size, 22);
+                    padding: 20px 10px;
+                }                
+                color: color(primary, dark);
+                background-color: transparent;
+                &:hover {
+                    background-color: color(secondary, base);
+                }
+                [class*="fa"] {
+                    padding-left: 10px;
+                    @include toRem(font-size, 16);
+                }
+            }
+            .thead {
+                min-width: 768px;
+                padding: 20px 20px 0;
+                .text {
+                    text-transform: uppercase;
+                    @include toRem(font-size, 18);
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    max-width: 100%;        
+                    @media screen and (max-width: $screen-lg-min) {
+                        color: color(secondary, base);
+                    }            
+                }
+            }
+            .tbody {
+                min-width: 768px;
+                .row {
+                    background-color: white;
+                    &:nth-child(even) {
+                        background-color: rgba($color: #FFF, $alpha: .8);
+                    }
+                    padding: 20px;
+                    border-radius: 5px;
+                    small {
+                        color: color(primary, dark);
+                        line-height: 1.4;
+                        font-weight: bold;
+                    }
+                    .title {
+                        @include toRem(font-size, 22);
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        max-width: 220px;
+                        color: color(primary, dark);
+                    }
+                    [data-esgotado="1"] {
+                        > * {
+                            display: none !important;
+                        }
+                        &::after {
+                            content: 'Esgotado';
+                            @include toRem(font-size, 14);
+                            color: color(primary, dark);
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .inscricao {
+        margin-bottom: 80px;
+        color: white;
+        background-color: color(helpers, brown);
+        .section-header {
+            .text,
+            .title {
+                color: inherit;
+            }
+        }
+        > .container {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        .inscricao-list {
+            margin-bottom: 30px;
+            &-item {
+                .title {
+                    @include toRem(font-size, 22);
+                    text-transform: uppercase;
+                    color: color(secondary, base);
+                    font-weight: 500;
+                    line-height: 1.4;
+                }
+                .thumbnail {
+                    height: 126px;
+                }
+                .text {
+                    @include toRem(font-size, 18);
+                }
+            }
+        }
+        .cta {
+            .container {
+                @media screen and (min-width: $screen-xl-min) {
+                    padding: 44px 66px;
+                    @media screen and (min-width: $screen-xxl-min) {
+                        padding: 44px 103px;
+                    }
+                }                
+            }
+        }
+    }
+}

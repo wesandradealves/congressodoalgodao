@@ -1,0 +1,22 @@
+.data {
+    .container {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        ul.d-flex {
+            margin-bottom: -76px;
+            .item {
+                margin-bottom: 76px;
+                text-align: center;
+                .title {
+                    @include toRem(font-size, 48);
+                    color: color(primary, base);
+                }
+                .text {
+                    @include toRem(font-size, 16);
+                    margin-top: 5px;
+                    color: color(neutrals, gray);
+                }                
+            }
+        }
+    }
+}

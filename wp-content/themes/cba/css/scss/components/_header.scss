@@ -1,0 +1,152 @@
+@keyframes nav-mobile {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    } 
+}
+
+@keyframes nav-mobile-menu {
+    from {
+        left: -100%;
+        opacity: 0;
+    }
+
+    to {
+        left: 0;
+        opacity: 1;
+    } 
+}
+
+.header {
+    position: relative;
+    z-index: 50;
+    &.sticky {
+        position: fixed;
+        top: -100%;
+        width: 100%;
+        opacity: 0;
+        transition: 250ms ease all;
+        z-index: 60;
+        .container {
+            padding-top: 12px;
+            padding-bottom: 12px;   
+        }
+        &.stuck {
+            top: 0;
+            opacity: 1;
+        }
+    }
+    &-top {
+        position: relative;
+        z-index: 2;
+        box-shadow: 0px 0px 20px -15px black;
+        .container {
+            padding-top: 10px;
+            padding-bottom: 10px;            
+            .navigation {
+                .nav-item {
+                    color: black;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    &.btn {
+                        position: relative;
+                        width: 177px;
+                        height: 54px;
+                        a {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                    &:not(:last-child) {
+                        margin-right: 25px;
+                        @media screen and (min-width: $screen-xl-min) {
+                            margin-right: 53px;
+                        }
+                    }
+                    .nav-link {
+                        color: inherit;
+                        &[aria-current] {
+                            color: color(secondary, base);
+                        }
+                        &:hover {
+                            color: color(secondary, base);
+                        }                        
+                    }
+                }
+            }
+        }
+    }
+    background-color: white;
+    .navigation {
+        &.mobile {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,.5);
+            height: calc(100vh - 132px);
+            display: none;
+            z-index: 1;
+            > ul {
+                position: relative;
+                height: 100%;
+                overflow: auto;
+                background-color: white;
+                padding: 30px 0 0;
+                margin-right: auto;
+                display: flex;
+                width: 100%;
+                max-width: 90%;
+                flex-flow: column;
+                .nav-item {
+                    font-weight: bold;
+                    &:not(.btn) {
+                        padding: 0 30px;
+                        &:not(:last-child) {
+                            border-bottom: 1px lightgray solid;
+                            padding-bottom: 1rem;
+                            margin-bottom: 1rem;
+                            &:nth-last-child(2) {
+                                border: 0;
+                                margin-bottom: 0;
+                            }
+                        }
+                        .nav-link {
+                            color: dimgray;
+                        }
+                    }
+                    &.btn {
+                        width: 100%;
+                        border-radius: 0;
+                    }
+                }
+            }
+            &.is-active {
+                display: flex;
+                flex-flow: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                animation: nav-mobile 250ms forwards;
+                > ul {
+                    animation: nav-mobile-menu 600ms forwards;
+                    
+                }
+            }
+        }
+    }
+    .botao {
+        .nav-lihk {
+            @extend .btn;
+            @extend .primary;
+        }
+    }    
+}

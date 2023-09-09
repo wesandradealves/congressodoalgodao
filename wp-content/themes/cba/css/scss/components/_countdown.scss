@@ -1,0 +1,72 @@
+.countdown {
+    background-color: color(helpers, purple);
+    color: white;
+    text-transform: uppercase;
+    @include toRem(font-size, 22);
+    .container {
+        padding-top: 29px;
+        padding-bottom: 29px;
+        p {
+            @include toRem(font-size, 22);
+            &:first-of-type {
+                color: color(secondary, base);
+                padding-right: 20px;
+                @media screen and (min-width: $screen-xxl-min) {
+                    padding-right: 60px;
+                }
+            }
+            &#countdown {
+                display: flex;
+                align-items: center;
+                // flex-flow: column;
+                transform: scale(.6);
+                @media screen and (min-width: $screen-sm-min) {
+                    transform: initial;
+                }
+                @media screen and (min-width: $screen-sm-min) {
+                    flex-flow: row;
+                }
+                > div {
+                    > span {
+                        &:nth-child(odd) {
+                            @include toRem(font-size, 50);
+                            line-height: 1;
+                            font-weight: bold;
+                            padding-right: 5px;
+                            flex: 0 0 auto;
+                            width: 70px;
+                            @media screen and (max-width: $screen-sm-min) {
+                                width: 100px;
+                            }
+                            @media screen and (min-width: $screen-sm-min) {
+                                width: auto;
+                            }
+                            text-align: center;
+                        }         
+                        &:nth-child(even) {
+                            color: color(secondary, base);
+                            text-transform: lowercase;
+                            flex: 0 0 auto;
+                            width: 80px;
+                            @media screen and (min-width: $screen-sm-min) {
+                                padding-right: 20px;
+                                width: auto;
+                                @media screen and (min-width: $screen-xxl-min) {
+                                    padding-right: 60px;
+                                } 
+                            }                           
+                        }                                           
+                    }
+                    &:last-child {
+                        > span {
+                            &:last-child {
+                                padding-right: 0;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

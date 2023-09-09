@@ -1,0 +1,144 @@
+.footer {
+    background-color: color(primary, dark);
+    color: white;
+    &.has-no-newsletter {
+        padding-top: 40px;        
+        @media screen and (min-width: $screen-lg-min) {
+            padding-top: 77px;
+        }          
+    }
+    a {
+        color: inherit;
+        &:hover {
+            color: color(secondary, base);
+        }
+    }
+    .navigation {
+        > ul {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: stretch;
+            justify-content: center;
+            > .nav-item {
+                flex: 1;
+                .nav-link {
+                    color: white;
+                    @include toRem(font-size, 16);
+                    &[aria-current],
+                    &:hover {
+                        color: color(secondary, base);
+                    }
+                }
+                > .nav-link {
+                    @extend .navigation-title;
+                }
+                > ul {
+                    > .nav-item {
+                        &:not(:last-child) {
+                            margin-bottom: 12px;
+                        }
+                    }
+                }
+                &:not(:last-child) {
+                    padding-right: 20px;
+                    @media screen and (min-width: $screen-lg-min) {
+                        padding-right: 40px;
+                    }
+                }                
+            }
+        }
+    }
+    &-top {
+        .container {
+            padding-bottom: 40px;        
+            @media screen and (min-width: $screen-lg-min) {
+                padding-bottom: 77px;
+            }            
+            > * {
+                &:not(:last-child) {
+                    padding-right: 40px;
+                    @media screen and (min-width: $screen-lg-min) {
+                        padding-right: 80px;
+                    }
+                }
+            }
+            .navigation-title {
+                display: block;
+                font-weight: bold;
+                text-transform: uppercase;
+                @include toRem(font-size, 16);
+                @include toRem(letter-spacing, 2);
+                margin-bottom: 24px;
+                &:not(.has-image) {
+                    padding-top: 5px;
+                    margin-bottom: 30px;
+                }
+            }
+            .social-networks {
+                margin-top: 24px;
+                .d-flex {
+                    flex-flow: column wrap;
+                    align-items: initial !important;
+                }
+                .nav-item {
+                    &:not(:last-child) {
+                        margin-right: 0;
+                        margin-bottom: 24px;
+                    }
+                    .nav-link {
+                        &:hover {
+                            .fa-brands {
+                                &::after {
+                                    color: color(secondary, base);
+                                }
+                            }
+                        }
+                    }
+                    .fa-brands {
+                        display: flex;
+                        align-items: center;
+                        color: color(secondary, base);
+                        &::before {
+                            width: 21px;
+                            flex: 0 0 auto;
+                            text-align: center;
+                            @include toRem(font-size, 18);
+                        }
+                        &::after {
+                            color: white;
+                            @include toRem(font-size, 16);
+                            flex: 1;
+                            font-family: Montserrat, Arial, Helvetica, sans-serif;
+                            padding-left: 13px;
+                        }
+                        &[class*="facebook"] {
+                            &::after {
+                                content: 'Facebook';
+                            }
+                        }
+                        &[class*="instagram"] {
+                            &::after {
+                                content: 'Instagram';
+                            }
+                        }
+                        &[class*="twitter"] {
+                            &::after {
+                                content: 'Twitter';
+                            }
+                        }
+                        &[class*="linkedin"] {
+                            &::after {
+                                content: 'Linkedin';
+                            }
+                        }
+                        &[class*="youtube"] {
+                            &::after {
+                                content: 'Youtube';
+                            }
+                        }                                                                
+                    }
+                }
+            }            
+        }
+    }
+}

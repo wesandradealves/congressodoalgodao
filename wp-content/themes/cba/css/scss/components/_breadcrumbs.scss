@@ -1,0 +1,17 @@
+.breadcrumbs {
+    .aioseo-breadcrumbs {
+        @include toRem(font-size, 14);
+        color: white;
+        a {
+            color: inherit;
+            &:hover {
+                color: color(secondary, base);
+            }
+        }
+        .aioseo-breadcrumb {
+            &-separator {
+                margin: 0 15px;
+            }
+        }
+    }
+}

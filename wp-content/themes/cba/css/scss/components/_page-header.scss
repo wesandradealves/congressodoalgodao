@@ -1,0 +1,9 @@
+.page-header {
+    background: url(./img/page-header-.jpg) right 0 / cover no-repeat color(primary, base);
+    color: white;
+    padding-top: 52px;
+    padding-bottom: 52px;
+    .title {
+        @include toRem(font-size, 36);
+    }
+}

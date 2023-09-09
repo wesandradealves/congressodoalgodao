@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800;900&display=swap');
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+    } 
+}
+
+html, body {
+    @include toRem(font-size, 14);
+    min-width: 375px;
+    min-height: 100vh;
+    animation: opacity 600ms forwards;
+    font-weight: 500;
+    color: black;
+    overflow-x: hidden;
+    line-height: 1.8;
+    // font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    * {
+        &:not([class*="fa"]) {
+            font-family: inherit;
+        }
+    }
+    .title,
+    .text,
+    p {
+        strong, b {
+            font-weight: bold !important;
+        }
+        word-break: break-word;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        // -webkit-hyphens: auto;
+        // -moz-hyphens: auto;
+        // -ms-hyphens: auto;
+        // hyphens: auto;    
+        * {
+            word-break: inherit;
+            word-wrap: inherit;
+            overflow-wrap: inherit;
+            // -webkit-hyphens: inherit;
+            // -moz-hyphens: inherit;
+            // -ms-hyphens: inherit;
+            // hyphens: inherit;            
+        }    
+    }
+
+    @for $i from 1 through 3 {
+        h#{$i} {
+            font-weight: bold;
+            word-break: break-word;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            // -webkit-hyphens: auto;
+            // -moz-hyphens: auto;
+            // -ms-hyphens: auto;
+            // hyphens: auto;    
+        }
+    }   
+}
+
+.container {
+    @media screen and (max-width: $screen-xs-min) {
+        max-width: 100%;
+    }
+}
+
+#wrap {
+    min-height: inherit;
+}
+
+#wrap,
+main {
+    overflow: hidden;
+    background-color: white;
+}
+
+.img-fluid {
+    max-width: 100%;
+}
+
+.mCustomScrollbar {
+    .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+        background-color: color(primary, base);
+    }
+}
+
+.content {
+    &-inner {
+        @for $i from 1 through 3 {
+            h#{$i} {
+                &:not(:first-child) {
+                    margin-top: 1rem;
+                }
+                & ~ * {
+                    margin-top: 1rem;
+                }             
+            }
+        }      
+    
+        p {
+            & ~ * {
+                margin-top: 1rem;
+            }         
+            strong, b {
+                font-weight: bold !important;
+            }
+            word-break: break-word;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            * {
+                word-break: inherit;
+                word-wrap: inherit;
+                overflow-wrap: inherit;
+            }    
+            @include toRem(font-size, 18);
+            color: color(neutrals, gray);
+        }
+        
+        ul, ol {
+            list-style: disc;
+            line-height: 1.4;
+            :not(:first-child) ~ * {
+                margin-top: 1rem;
+            }
+            padding-left: 20px;
+            padding-right: 35px;
+            @include toRem(font-size, 16);
+            color: color(neutrals, gray);            
+            li {
+                line-height: inherit;
+                &:first-child ~ * {
+                    margin-top: 1rem;
+                }             
+            }
+        }      
+    }
+}    
+
+.text,
+.content,
+.content-area {
+    @for $i from 1 through 3 {
+        h#{$i} {
+            &:not(:first-child) {
+                margin-top: 1rem;
+            }
+            &:first-child {
+                margin-bottom: 1rem;
+            }
+        }
+    }      
+
+    p {
+        & ~ p {
+            margin-top: 1rem;
+        }        
+        line-height: 1.8;
+        strong, b {
+            font-weight: bold !important;
+        }
+        word-break: break-word;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        // -webkit-hyphens: auto;
+        // -moz-hyphens: auto;
+        // -ms-hyphens: auto;
+        // hyphens: auto;    
+        * {
+            word-break: inherit;
+            word-wrap: inherit;
+            overflow-wrap: inherit;
+            // -webkit-hyphens: inherit;
+            // -moz-hyphens: inherit;
+            // -ms-hyphens: inherit;
+            // hyphens: inherit;            
+        }    
+    }
+    
+    ul, ol {
+        line-height: 1.4;
+        :not(:first-child) ~ * {
+            margin-top: 1rem;
+        }
+        padding-left: 35px;
+        padding-right: 35px;
+        @include toRem(font-size, 16);
+        color: color(neutrals, gray);      
+        list-style: disc;     
+        li {
+            line-height: inherit;
+            &:first-child ~ * {
+                margin-top: 1rem;
+            }             
+        }
+    }        
+}
+
+.lb-dataContainer {
+    display: none !important;
+}
+
+.lightbox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[class*="aiosrs"] {
+    display: none !important;
+}
+
+.lb-next, .lb-prev {
+    opacity: 1 !important;
+}

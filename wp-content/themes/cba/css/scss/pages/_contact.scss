@@ -1,0 +1,101 @@
+.page-template-contato {
+    #primary {
+        .container {
+            padding-bottom: 80px;
+            .section-header,
+            .wpcf7-form {
+                @media screen and (min-width: $screen-lg-min) {
+                    max-width: 992px;
+                    margin: 0 auto;
+                }
+            }
+            .contacts {
+                &-item {
+                    .title {
+                        @include toRem(font-size, 22);
+                        color: color(primary, base);
+                        text-transform: uppercase
+                    }
+                    .text {
+                        @include toRem(font-size, 18);
+                        color: color(neutrals, gray);
+                    }
+                }
+            }
+            .wpcf7-form {
+                .wpcf7-response-output {
+                    text-align: right;
+                    color: black;
+                }
+                .form-group {
+                    position: relative;           
+                }
+                .wpcf7-not-valid-tip {
+                    margin: 0;
+                    display: block;
+                    font-size: .8rem;
+                    position: absolute;
+                    bottom: 5px;
+                    right: 15px;
+                } 
+                .btn-send {
+                    @extend .btn;
+                    @extend .primary;
+                    border: 0;
+                    margin-left: auto;
+                    display: block;
+                    min-width: 215px;
+                }
+                .wpcf7-form-control-wrap {
+                    // > div {
+                    //     &:first-child {
+                    //         .form-group {
+                    //             &:not(:last-child) {
+                    //                 margin-bottom: 20px;
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                    &:not(:last-child) {
+                        margin-bottom: 20px;
+                    }
+                    display: block;
+                    input, button, textarea {
+                        border: 0;
+                        outline: 0;
+                        resize: none;
+                        overflow: hidden;
+                        border-radius: 5px;
+                        padding: 5px 15px;
+                        @include toRem(font-size, 18);
+                        color: color(neutrals, gray);             
+                        border: 2px lightgray solid;
+                        &:not([type="submit"]) {
+                            width: 100%;
+                        }
+                        &[type="submit"] {
+                            border: 0;
+                            @include toRem(font-size, 14);
+                            color: black;
+                            padding: 9px 40px;
+                            width: 100%;
+                            @media screen and (min-width: $screen-lg-min) {
+                                width: auto;
+                            }
+                            &:hover {
+                                color: color(secondary, base);
+                            }
+                        }
+                    }
+                    textarea {
+                        height: 230px;
+                        & + .wpcf7-not-valid-tip {
+                            bottom: 15px;
+                        }
+                    }
+                }
+            }            
+        }
+    }
+
+}

@@ -1,0 +1,27 @@
+.page-template-seja-um-patrocinador {
+    .expositores,
+    .mapa-do-evento {
+        padding-top: 80px;
+    }
+    .expositores {
+        &-list {
+            &-group {
+                ul {
+                    list-style: decimal;
+                    padding-left: 17px;
+                }
+                .title {
+                    color: color(primary, base);
+                    @include toRem(font-size, 26);
+                }
+                .expositor {
+                    color: color(neutrals, gray);
+                    @include toRem(font-size, 18);
+                    white-space: pre-line;
+                    word-wrap: break-word;
+                    display: list-item;
+                }
+            }
+        }
+    }
+}

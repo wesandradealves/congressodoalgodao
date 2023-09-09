@@ -1,0 +1,116 @@
+[class*="area-cientifica"] {
+    .downloads {
+        color: white;
+        margin-top: 80px;
+        background-color: color(primary, base);
+        padding-top: 80px;
+        padding-bottom: 50px;
+        .section-header {
+            .title {
+                color: inherit;
+            }
+        }
+        &-list {
+            &-item {
+                .title {
+                    @include toRem(font-size, 25);
+                    font-weight: 500;       
+                }
+                .btn {
+                    border: 1px transparent solid;
+                    &:hover {
+                        background-color: transparent;
+                        border: 1px color(secondary, base) solid;
+                    }
+                }
+            }
+        }
+    }
+    .areas-de-conhecimento {
+        padding-bottom: 50px;
+        .text {
+            @include toRem(font-size, 18);
+            color: color(neutrals, gray);
+        }
+        .thumbnail {
+            height: 88px;
+            width: auto;
+        }
+    }
+    .autores-de-trabalhos-premiados {
+        background-color: color(neutrals, medium);
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .cta {
+        &#area-de-conhecimento {
+            .title {
+                @include toRem(font-size, 22);
+            }        
+            .btn {
+                padding: 16px 40px;
+            }
+            .col-xl-8 {
+                @media screen and (min-width: $screen-xl-min) {
+                    width: 66.66666667%;
+                }
+            }            
+        }
+    }
+    .table {
+        border: 2px color(primary, base) solid;
+        font-weight: bold;
+        background-color: white;
+        & ~ .table-tip {
+            color: color(neutrals, gray);
+            @include toRem(font-size, 20);
+            font-weight: bold;
+        }
+        width: 100%;
+        @media screen and (max-width: $screen-md-min) {
+            width: 992px;
+        }
+        .thead {
+            @include toRem(font-size, 18);
+            color: color(primary, base);
+            .td {
+                background-color: color(primary, base);
+                color: white;
+                border-left: 1px white solid;
+                &.label {
+                    @include toRem(font-size, 26);
+                    background-color: white;
+                    color: color(primary, base);
+                }
+            }
+        }
+        .tbody {
+            @include toRem(font-size, 20);
+            color: color(primary, base);
+            .th {
+                .label {
+                    background-color: #D6D6D6;
+                    border-right: 1px white solid;
+                    & + * {
+                        p {
+                            background-color: #D6D6D6;
+                        }
+                    }
+                }
+                &:nth-child(even) {
+                    .label {
+                        background-color: #E5E5E5;
+                        & + * {
+                            p {
+                                background-color: #E5E5E5;
+                            }
+                        }                        
+                    }                    
+                }
+            }
+        }
+        .td  {
+            padding: 15px 22px;
+        }
+    }
+}

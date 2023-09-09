@@ -1,0 +1,36 @@
+.pagination {
+    position: relative;
+    .page-numbers {
+        &.next {
+            margin-left: auto;
+            position: absolute;
+            right: 0;
+        }
+        &.prev {
+            margin-right: auto;
+            position: absolute;
+            left: 0
+        }        
+        @include toRem(font-size, 12);
+        color: color(primary, base);
+        font-weight: bold;        
+        border: 1px transparent solid;
+        &:not(.next):not(.prev) {
+            height: 36px;
+            width: 36px;
+            margin: 0 5px;
+            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            border-color: color(primary, base);
+            font-weight: 300;
+            &:hover,
+            &.current {
+                background-color: color(primary, base);
+                color: white;
+            }
+        }
+    }
+}

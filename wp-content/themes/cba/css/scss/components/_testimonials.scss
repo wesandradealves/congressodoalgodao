@@ -1,0 +1,93 @@
+.testimonials {
+    margin-bottom: 80px;
+    position: relative;
+    .carousel-wrapper {
+        position: relative;
+    }
+    .slick-nav {
+        position: absolute;
+        top: calc(50% - 25px);
+        left: 0;
+        height: 0;
+        width: 100%;
+        z-index: 10;
+        button {
+            border: 0;
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            @include toRem(font-size, 32);
+            color: color(primary, base);
+            &:hover {
+                color: color(secondary, base);
+            }
+        }
+    }
+    .slick-dots {
+        display: flex;
+        margin: 0px;
+        position: relative;
+        @media screen and (max-width: $screen-lg-min) {
+            justify-content: center;
+        }
+        li {
+            height: auto;
+            width: auto;
+            margin: 0;
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+            &.slick-active {
+                button:before {
+                    color: color(primary, base);
+                }  
+            }
+            button {
+                height: auto;
+                width: auto;                
+                padding: 0;
+                &:before {
+                    position: relative;
+                    color: color(neutrals, gray);
+                    @include toRem(font-size, 10);
+                }                  
+            }          
+        }
+    }
+    .text {
+        color: color(neutrals, gray);
+        @include toRem(font-size, 18);
+        margin-top: 26px;
+        line-height: 1.9;
+    }
+    .thumbnail {
+        position: relative;
+        // height: 500px;
+        .img-fluid {
+            height: 100%;
+            object-fit: cover;
+            width: 150%;
+            position: absolute;
+            right: 40px;
+            top: 0;
+            max-width: initial;
+        }
+    }
+    .title {
+        color: color(primary, dark);
+        @include toRem(font-size, 22);
+        @for $i from 1 through 3 {
+            h#{$i} {
+                margin-bottom: 46px;
+                text-transform: initial;
+                @include toRem(font-size, 36);
+                color: color(primary, base);
+            }
+        }        
+        small {
+            font-size: 70%;
+            color: color(neutrals, gray);
+            font-weight: 300;
+        } 
+    }
+}

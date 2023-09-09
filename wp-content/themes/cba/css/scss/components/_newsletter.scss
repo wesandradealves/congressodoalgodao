@@ -1,0 +1,65 @@
+.newsletter {
+    .container {
+        border-bottom: 1px color(secondary, base) solid;
+        padding-top: 40px;
+        padding-bottom: 40px;        
+        @media screen and (min-width: $screen-lg-min) {
+            padding-top: 77px;
+            padding-bottom: 77px;
+        }
+        .title {
+            @include toRem(font-size, 30);
+            color: color(secondary, base);
+        }
+        .text {
+            @include toRem(font-size, 18);
+            margin-top: 31px;
+        }
+        .wpcf7-form {
+            .d-flex {
+                > div {
+                    flex: 1;
+                    position: relative;
+                    &:not(:last-child) {
+                        padding-right: 20px;
+                        &:nth-last-child(2n+2) {
+                            @media screen and (max-width: $screen-lg-min) {
+                                padding-right: 0;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        flex: 0 0 auto;
+                        width: 100%;
+                        margin-top: 20px;
+                        @media screen and (min-width: $screen-lg-min) {
+                            width: auto;
+                            margin-top: 0;
+                        }
+                    }
+                    input {
+                        width: 100%;
+                        &[type="submit"] {
+                            @extend .btn;
+                            @extend .primary;
+                            padding: 13px 17px;
+                            border: 0;
+                            font-weight: bold;
+                            color: color(primary, dark);
+                        }
+                        &:not([type="submit"]) {
+                            height: 100%;
+                            border: 0;
+                            padding: 16px 17px;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+            .wpcf7-form-control-wrap {
+                position: relative;
+                display: block;
+            }
+        }
+    }
+}

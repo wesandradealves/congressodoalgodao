@@ -1,0 +1,26 @@
+.accordion {
+    padding: 0 !important;
+    &-item {
+        .title {
+            @include toRem(font-size, 22);
+            color: color(primary, dark);
+            text-transform: uppercase;
+            &:hover {
+                color: color(secondary, base);
+            }
+            cursor: pointer;
+            [class*="fa"] {
+                color: color(primary, base);
+            }
+        }
+        .text {
+            @include toRem(font-size, 18);
+            color: color(neutrals, gray);
+        }
+        &:not(:last-of-type) {
+            padding-bottom: 44px;
+            margin-bottom: 44px;
+            border-bottom: 2px color(neutrals, gray) solid;
+        }
+    }
+}

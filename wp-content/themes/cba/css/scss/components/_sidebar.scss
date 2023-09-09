@@ -1,0 +1,156 @@
+body {
+    header, footer, #primary .content, .sidebar:not(.sticky) {
+        transition: 500ms ease opacity;
+    }
+
+    &.is-active {
+        header, footer, #primary .content, .sidebar:not(.sticky) {
+            opacity: .1;
+            pointer-events: none
+        }
+    }
+}
+
+.sidebar {
+    &.blog {
+        @include toRem(font-size, 18);
+        .close {
+            padding: 30px 30px 0;
+            color: white;            
+        }
+        &.sticky {
+            position: fixed;
+            color: white;
+            top: 0;
+            opacity: 0;
+            transition: 500ms ease all;
+            left: -100%;
+            .close {
+                display: flex !important;
+            }
+            &.is-active {
+                left: 0;
+                opacity: 1;
+            }
+            height: 100vh;
+            width: calc(100% - 70px);
+            z-index: 90;
+            overflow: auto;
+            background-color: color(primary, base);
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 100%;
+                background-color: red;
+            }
+            .sidebar-group {
+                &.d-none {
+                    display: block !important;
+                }
+                .title {
+                    color: inherit;
+                }
+                &.last-posts {
+                    border-top: 1px white solid;
+                    > li:first-child .title {
+                        color: color(secondary, base);
+                        @include toRem(font-size, 22);
+                        font-weight: bold;       
+                        text-transform: uppercase;                 
+                    }
+                    .last-posts-item {
+                        .title {
+                            color: inherit;
+                        }
+                    }
+                }
+            }
+        }
+        .sidebar-group {
+            .title {
+                color: color(primary, base);
+                @include toRem(font-size, 22);
+                font-weight: bold;
+            }
+            &.last-posts {
+                padding: 40px 20px;
+                .last-posts-item {
+                    cursor: pointer;
+                    .title {
+                        @include toRem(font-size, 16);
+                        text-transform: initial;
+                        color: black;
+                        font-weight: 500;
+                    }
+                    &:hover {
+                        .title {
+                            color: color(primary, light);
+                        }
+                    }
+                    .text {
+                        @include toRem(font-size, 14);
+                        color: color(primary, light);
+                    }
+                }
+            }
+            &.terms {
+                background-color: color(primary, base);
+                color: white;
+                li {
+                    .title,
+                    a {
+                        display: block;
+                        text-transform: uppercase;
+                        padding: 15px 30px;
+                        color: white;
+                        [class*="fa"] {
+                            color: color(secondary, base);
+                        }
+                        &:hover {
+                            background-color: color(secondary, base);
+                            color: color(primary, base);
+                            [class*="fa"] {
+                                color: inherit;
+                            }                            
+                        }
+                    }
+                    .title {
+                        color: color(secondary, base);
+                    }
+                    &:not(:last-child) {
+                        border-bottom: 1px white solid;
+                    }
+                }
+            }
+        }
+        #search {
+            padding: 27px;
+            border-bottom: 2px white solid;
+            background-color: color(primary, base);
+            .searchbar {
+                display: flex;
+                border-radius: 8px;
+                background-color: white;
+                padding: 0 20px;
+                input, button {
+                    border: 0;
+                    padding: 0;
+                    margin: 0;
+                    outline: 0;
+                    background-color: transparent;
+                    &[type="text"] {
+                        padding: 10px 0;
+                        @include toRem(font-size, 16);
+                        color: black;
+                    }
+                }
+                button {
+                    @include toRem(font-size, 16);
+                }
+            }
+        }
+    }
+}

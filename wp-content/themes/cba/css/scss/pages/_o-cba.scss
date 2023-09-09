@@ -1,0 +1,61 @@
+[class*="page-template-o-cba"] {
+    .content {
+        padding-bottom: 80px;
+    }
+    .sidebar {
+        @media screen and (min-width: $screen-md-min) {
+            & + * {
+                padding-left: 80px;
+                @media screen and (min-width: $screen-xl-min) {
+                    padding-left: 165px
+                }
+            }
+        }
+        .name,
+        .title {
+            @include toRem(font-size, 48);
+            color: color(primary, dark);
+        }
+        .name {
+            @include toRem(font-size, 22);
+            font-weight: bold;
+        }
+    }
+    .events {
+        color: white;
+        background-color: color(primary, dark);
+        .section-header {
+            .text,
+            .title {
+                color: inherit;
+            }
+        }
+        .container {
+            padding-top: 149px;
+            padding-bottom: 149px;
+        }
+    }
+    .cta {
+        > [class*="container"] {
+            .d-flex {
+                @media screen and (min-width: $screen-xl-min) {
+                    width:  75%;
+                }
+                .col-xl-8 {
+                    @media screen and (min-width: $screen-xl-min) {
+                        width: 58.33333333%;
+                        @media screen and (min-width: $screen-xxl-min) {
+                            width: 41.66666667%;
+                        }
+                    }
+                }
+                .title {
+                    @include toRem(font-size, 48);
+                }
+                .text {
+                    @include toRem(font-size, 18);
+                }                      
+            }
+        }
+    }
+}

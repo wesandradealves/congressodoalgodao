@@ -1,0 +1,23 @@
+.rule {
+    background-color: color(primary, base);
+    border-radius: 10px;
+    color: white;
+    padding: 35px 45px;
+    .icon,
+    [class*="fa-"] {
+        @include toRem(font-size, 64);
+    }
+    .text {
+        color: inherit;
+        p {
+            color: inherit;
+        }
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+            font-weight: bold;
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+.staff {
+    .container {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    &-list {
+        margin: 0 -25px -3rem;
+        @media screen and (min-width: $screen-xl-min) {
+            margin: 0 -50px -3rem;
+        }
+        &-item {
+            cursor: pointer;
+            padding: 0 25px;
+            @media screen and (min-width: $screen-xl-min) {
+                padding: 0 50px;
+            }
+            &:hover {
+                .title {
+                    color: color(secondary, base);
+                }
+            }
+            .thumbnail {
+                width: 100%;
+                padding: 0 0 150%;
+                object-fit: cover;
+                background-size: cover;
+                background-position: center 0;
+                background-repeat: no-repeat;
+                border-radius: 5px;
+            }
+            .title {
+                @include toRem(font-size, 22);
+                color: color(primary, base);
+            }
+            .text {
+                @include toRem(font-size, 18);
+                color: color(neutrals, gray);
+            }
+        }
+    }
+}

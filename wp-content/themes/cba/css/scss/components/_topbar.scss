@@ -1,0 +1,26 @@
+.topbar {
+    background-color: color(primary, base);
+    color: white;
+    .container {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        .navigation {
+            .nav-item {
+                font-weight: bold;
+                text-transform: uppercase;
+                &:not(:last-child) {
+                    margin-right: 20px;
+                    @media screen and (min-width: $screen-md-min) {
+                        margin-right: 40px;
+                    }
+                }
+            }
+        }
+        .nav-link {
+            color: inherit;
+            &:hover {
+                color: color(secondary, base);
+            }
+        }
+    }
+}

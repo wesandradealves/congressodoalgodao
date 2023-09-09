@@ -1,0 +1,49 @@
+.page-description {
+    .container {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        &:not([class*="reverse"]) {
+            > div {
+                &:last-of-type:not(:only-child) {
+                    @media screen and (min-width: $screen-md-min) {
+                        padding-left: 70px;
+                        @media screen and (min-width: $screen-xxl-min) {
+                            padding-left: 138px
+                        }
+                    }
+                }
+            }  
+        }
+        &[class*="reverse"] {
+            > div {
+                &:first-of-type:not(:only-child) {
+                    @media screen and (min-width: $screen-md-min) {
+                        padding-left: 70px;
+                        @media screen and (min-width: $screen-xxl-min) {
+                            padding-left: 138px
+                        }
+                    }
+                }
+            }  
+        }        
+        > div {
+            .title {
+                @include toRem(font-size, 36);
+                color: color(primary, base);
+                small {
+                    @include toRem(font-size, 18);
+                    color: color(neutrals, gray);
+                    font-weight: normal
+                }
+            }
+            p {
+                @include toRem(font-size, 18);
+                color: color(neutrals, gray);
+            }
+            .btn {
+                padding: 16px 40px;
+            }
+        }
+    }
+
+}

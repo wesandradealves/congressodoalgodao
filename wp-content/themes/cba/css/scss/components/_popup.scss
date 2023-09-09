@@ -1,0 +1,321 @@
+@keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+}
+
+.popup {
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding: 35px;
+    &-content {
+        > div {
+            max-height: 400px;
+            overflow: hidden;
+            overflow-y: auto;
+        }
+    }
+    &-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 14px 34px;
+        color: black;
+        @include toRem(font-size, 40);
+    }
+    &-inner {
+        padding: 35px;
+        @media screen and (min-width: $screen-lg-min) {
+            padding: 60px 90px;
+        }
+        background-color: white;
+        position: relative;
+        width: 100%;
+        max-width: 1120px;
+        .title {
+            @include toRem(font-size, 22);
+            color: color(primary, dark); 
+            border-bottom: 1px color(primary, dark) solid;
+            padding-bottom: 22px;
+            margin-bottom: 22px;
+            small {
+                @include toRem(font-size, 12);
+                color: color(neutrals, gray);                
+            }
+        }
+        .text {
+            @include toRem(font-size, 18);
+            color: color(neutrals, gray);
+            line-height: 1.4; 
+        }
+        .btn {
+            max-width: 239px;
+            padding: 10px 30px;
+            @include toRem(font-size, 14);
+        }
+        .flickr {
+            @include toRem(font-size, 22);
+            color: color(neutrals, gray);
+            line-height: 1.4; 
+            text-decoration: underline;
+        }
+        .section-title {
+            @include toRem(font-size, 24);
+            color: color(primary, dark); 
+            font-weight: 300;
+            @media screen and (max-width: $screen-sm-min) {
+                padding-right: 40px;
+            }
+            strong {
+                font-weight: bold;
+            }
+        }
+        .powernumbers {
+            .info {
+                @include toRem(font-size, 28);
+                color: color(primary, dark); 
+                line-height: 1;
+                font-weight: bold;
+            }
+            .label {
+                @include toRem(font-size, 14);
+                color: color(neutrals, gray);
+            }
+        }
+        .video-wrapper {
+            position: relative;
+            [class*="fa-"] {
+                cursor: pointer;
+                position: absolute;
+                @include toRem(font-size, 14);
+                height: 40px;
+                width: 40px;
+                border-radius: 999px;
+                border: 2px white solid;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: calc(50% - 20px);
+                left: calc(50% - 20px);
+                z-index: 2;
+                color: white;
+            }
+            .video {
+                width: 100%;
+                height: 333px;
+                cursor: pointer;
+                object-fit: cover;
+                z-index: 1;
+                position: relative;
+            }
+        }
+        .timeline {
+            overflow: auto;
+            padding-left: 25px;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 10px;
+                height: 100%;
+                width: 1px;
+                background: #707070;                
+            }
+            &-item {
+                @include toRem(font-size, 22);
+                color: color(primary, dark); 
+                font-weight: bold;                   
+                .ano {
+                    flex: 0 0 auto;
+                    width: 110px;
+                    position: relative;
+                    &::before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 13px;
+                        left: -20px;
+                        width: 10px;
+                        height: 10px;
+                        background: color(primary, dark);
+                        border-radius: 999px;                    
+                    } 
+                }
+                .title {
+                    border: 0;
+                    margin: 0;
+                    padding: 0;
+                    .subtitle {
+                        @include toRem(font-size, 12);
+                    }
+                }
+            }
+        }
+        .gallery {
+            padding: 0;
+            margin: 0 -.5rem;
+            img {
+                object-fit: cover;
+                height: 40px;
+                @media screen and (min-width: $screen-md-min) {
+                    height: 80px;
+                    @media screen and (min-width: $screen-lg-min) {
+                        height: 146px;
+                    }                    
+                }
+            }
+        }
+        .placeholder {
+            width: 225px;
+            height: 163px;
+            &.shimmer {
+                overflow: hidden;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    background: linear-gradient(
+                        90deg,
+                        rgba(255,255,255,0) 0%,
+                        rgba(255,255,255,0.4) 50%,
+                        rgba(255,255,255,0) 100%
+                    );
+                    height: 100%;
+                    width: 100%;
+                    z-index: 1;
+                    animation: shimmer 1s infinite;
+                }
+            }
+            .faux-image-wrapper {
+                height: 100%;
+                margin-bottom: 10px;
+                position: relative;
+                padding-bottom: 100%; /* Or height: 200px; */
+                .faux-image {
+                    background: #dddddd;
+                    border-radius: 4px;
+                    height: 100%;
+                    position: absolute;
+                    width: 100%;
+                }                
+            }        
+            .faux-text {
+                background: #dddddd;
+                border-radius: 4px;
+                height: 20px;
+                margin-bottom: 5px;
+            }
+            .faux-text.short {
+                width: 75%;
+            }
+        }    
+        .box {
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+            background-color: color(primary, base);
+            @include toRem(font-size, 22);
+            font-weight: bold;
+            .title {
+                color: color(secondary, base);
+            }
+            .text {
+                color: inherit;
+            }
+            .btn:hover {
+                border: 1px color(secondary, base) solid;
+            }
+        }
+        [data-type="hotel"] {
+            .title {
+                border: 0;
+                padding-bottom: 0;
+                margin-bottom: 0;
+                @media screen and (max-width: $screen-sm-min) {
+                    padding-right: 40px;
+                } 
+            }
+            > div {
+                &:first-of-type {
+                    .title {
+                        @include toRem(font-size, 36);
+                        & + p {
+                            @include toRem(font-size, 22);  
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            .fa-check {
+                color: greenyellow;
+            }
+            .fa-location-pin {
+                color: color(primary, base);
+            }
+            & + div .gallery {
+                margin: 0;
+                img {
+                    display: block;
+                    border-radius: 10px;
+                    object-fit: cover;
+                    height: 75px;
+                    @media screen and (min-width: $screen-md-min) {
+                        height: 246px;
+                    }
+                    width: 324px;
+                }
+            }
+        }
+        .thumbnail {
+            width: 225px;
+            height: 163px;
+            object-fit: cover;
+        }
+        [data-type="comissao"],
+        [data-type="palestrante"] {
+            .title {
+                border: 0;
+                padding-bottom: 0;
+                margin-bottom: 0;
+                & + p {
+                    border-bottom: 2px color(neutrals, gray) solid;
+                    padding-bottom: 12px;
+                    margin-bottom: 12px;
+                }
+            }
+            .placeholder,
+            .thumbnail {
+                height: 310px;
+            }
+        }
+        [data-type="evento"] {
+            .title {
+                & ~ p {
+                    @include toRem(font-size, 22);  
+                    color: color(primary, base);
+                }
+            }
+        }        
+        [data-type="eventos-anteriores"] {
+            .thumbnail {
+                width: auto;
+                max-width: 100%;
+                height: auto;
+            }
+        }         
+    }
+}

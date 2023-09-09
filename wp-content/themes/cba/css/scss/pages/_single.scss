@@ -1,0 +1,37 @@
+.single {
+    #primary {
+        padding-bottom: 80px;
+    }
+    .post-header {
+        .thumbnail {
+            height: 260px;
+            object-fit: cover;
+        }
+        .title {
+            @include toRem(font-size, 40);
+            color: color(primary, dark);        
+        }
+        .text {
+            @include toRem(font-size, 18);
+            color: color(neutrals, gray); 
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;       
+        }
+    }
+    
+    .post-nav {
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include toRem(font-size, 18);
+            color: color(primary, dark);  
+            text-transform: uppercase;
+            font-weight: bold;
+            a {
+                color: inherit;
+            }
+        }
+    }    
+}
